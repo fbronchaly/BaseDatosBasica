@@ -1,0 +1,22 @@
+{
+    "name": "BaseDatosBasica",
+    "main": "server.js",
+    "dependencies": {
+        "@google-cloud/storage": "^2.0.0",
+        "angular": "^1.7.3",
+        "angular-animate": "^1.7.3",
+        "angular-aria": "^1.7.3",
+        "angular-google-maps": "2.2.x",
+        "angular-material": "^1.1.10",
+        "angular-messages": "^1.7.3",
+        "angular4-datepicker": "^1.0.1",
+        "body-parser": "^1.15.0",
+        "express": "^4.13.4",
+        "https": "^1.0.0",
+        "jsonwebtoken": "^5.0.2",
+        "method-override": "~2.1.2",
+        "mongoose": "~5.0.0",
+        "morgan": "^1.7.0",
+        "request": "^2.88.0"
+    }
+}

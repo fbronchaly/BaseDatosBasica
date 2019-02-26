@@ -1,0 +1,91 @@
+<!doctype html>
+
+<!-- Declares meanMapApp as the starting Angular module -->
+<html class="no-js" ng-app="meanMapApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mapa de rayos</title>
+    <meta name="description" content="An example demonstrating Google Map integration with MEAN Apps">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../node_modules/angular-material/angular-material.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+</head>
+<!-- Removed ng-controller. Now this will be handled in app.js -->
+
+<body>
+
+    <div class="container">
+        <div class="header" background-color: #FF0000;>
+            <ul class="nav nav-pills pull-right">
+                <!-- Links to the two menu views included -->
+                <li active><a href="/#/reset">Nueva Consulta</a></li>
+                <li disabled><a href="/#/join">Estadistica</a></li>
+            </ul>
+            <h3 class="text-muted">Mapa de rayos</h3>
+        </div>
+        <!-- Map and Side Panel -->
+        <div class="row content">
+            <!-- Google Map -->
+            <div class="col-md-7">
+                <div id="map" src="" style="width:550px; height:550px"></div>
+            </div>
+
+            <!-- Side Panel Now Handled by ng-view -->
+            <div ng-view></div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="text-center"><span class="glyphicon glyphicon-check"></span> Created by Frank Kolm -
+                <a href="http://www.aemet.es/es/eltiempo/observacion/rayos">AEMET-Rayos España</a> | <a href="https://www.lightningmaps.org/?lang=en#y=41.0835;x=5.0433;z=6;t=3;m=sat;r=0;s=0;o=0;b=;n=0;d=2;dl=2;dc=0;">Lightningmaps-Rayos Europa</a></p>
+        </div>
+    </div>
+
+
+    <!-- Holder JS -->
+
+    <script src="../bower_components/holderjs/holder.js"></script>
+    <!-- Google Maps API -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBNtD9D_96Y88nf9IHcRsQkt9o-7caOWHQ&sensor=false&libraries=places"></script>
+    <!-- Modernizr -->
+    <script src="../bower_components/modernizr/bin/modernizr"></script>
+    <!-- JS Source -->
+    <script src="../bower_components/jquery/src/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="../node_modules/angular-material/angular-material.min.js"></script>
+    <script src="../node_modules/angular-messages/angular-messages.js"></script>
+
+
+
+    <script src="js/lodash.min.js"></script>
+    <script src="js/angular-google-maps.min.js"></script>
+    <!-- Angular Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/gservice.js"></script>
+    <script src="js/gservice3.js"></script>
+    <script src="js/addCtrl.js"></script>
+    <script src="js/queryCtrl.js"></script>
+   
+
+
+    <script type="text/javascript" src="js/ngDatepicker.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js"></script>
+
+</body>
+
+</html>
