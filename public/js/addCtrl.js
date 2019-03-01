@@ -63,6 +63,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
 
 
         gservice.refresh2($scope.formData.latitude, $scope.formData.longitude, basefecha2, distance);
+        
 
 
 
@@ -88,8 +89,31 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
 
 
     };
+    // Imprimir mapa y datos
+       
+    document.querySelector("#btnImprimirParrafo").addEventListener("click", function() {
+        var parrafo = document.querySelector("#mapa");
+        imprimirElemento(parrafo);
+      });
 
 
+      function imprimirElemento(elemento) {
+        var title = "MAPA DE RAYOS " + basefecha;
+        var direccionSolicitada = "Dirección solicitada:" + $scope.formData.codePostal;
+        var ventana = window.open('', 'PRINT', 'height=200,width=300');
+        ventana.document.write('<html><head><title>' + title + '</title>');
+        ventana.document.write('<link rel="stylesheet" href="print.css">'); //Cargamos otra hoja, no la normal
+        ventana.document.write('</head><body ><p>'+ direccionSolicitada +'</p>');
+        ventana.document.write(elemento.innerHTML);
+        ventana.document.write('</body></html>');
+        ventana.document.close();
+        ventana.focus();
+        ventana.onload = function() {
+          ventana.print();
+          ventana.close();
+        };
+        return true;
+      }
 
 
     var input = document.getElementById('direccion');
@@ -118,6 +142,8 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
 
     });
 
+    
+
 
 });
 addCtrl.controller('addCtrl2', function($scope, $http, $location, geolocation, gservice) {
@@ -125,7 +151,7 @@ addCtrl.controller('addCtrl2', function($scope, $http, $location, geolocation, g
     // Inicio de variables
     // ----------------------------------------------------------------------------
 
-
+   
 
     // Cordenadas iniciales en el centro de España
     latitudeini = 40.4378698;
@@ -134,5 +160,7 @@ addCtrl.controller('addCtrl2', function($scope, $http, $location, geolocation, g
 
     gservice.refresh(latitudeini, longitudeini);
     $location.url('/join');
+    
 
 });
+

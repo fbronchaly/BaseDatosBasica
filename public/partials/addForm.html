@@ -54,7 +54,7 @@
                     <button type="submit" class="btn btn-danger btn-block" ng-click= "createUser()" ng-disabled="addForm.$invalid" >Consultar</button>
             </form>
 
-            
+        
 
         <!-- Panel Body -->
         <div class="panel-body" ng-show="mostrar_resultado">
@@ -67,7 +67,7 @@
 
                 <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
 
-
+                
 
                 <div class="form-group">
                     <label for="direccion">Direccion</label>
@@ -77,6 +77,12 @@
                     <label for="fecha">Fecha</label>
                     <input type="text" class="form-control" id="fecha" value = {{formData.fecha_Ok}} readonly>
                 </div>
+                <ul class="form-group">
+                
+                  
+
+                    <button id="btnImprimirParrafo" class="btn btn-primary">Imprimir </button>
+                </ul>
                 
 
 

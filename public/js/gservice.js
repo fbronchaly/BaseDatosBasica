@@ -1,4 +1,4 @@
-// Creates the gservice factory. This will be the primary means by which we interact with Google Maps
+//Creates the gservice factory. This will be the primary means by which we interact with Google Maps
 angular.module('gservice', [])
     .factory('gservice', function($http) {
 
@@ -13,6 +13,10 @@ angular.module('gservice', [])
         // Selected Location (initialize to center of spain)
         var selectedLat = 40.4378698;
         var selectedLong = -3.8196207;
+
+
+        
+        
 
         // Functions
         // --------------------------------------------------------------
@@ -126,13 +130,6 @@ angular.module('gservice', [])
 
                 });
             }
-
-
-
-
-
-
-
 
 
 

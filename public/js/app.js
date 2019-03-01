@@ -11,7 +11,13 @@ app.config(function($routeProvider) {
         controller: 'addCtrl',
         templateUrl: 'partials/addForm.html'
 
-       
+        // Find Teammates Control Panel
+    }).when('/pdf', {
+        controller: 'addCtrl3',
+        
+
+
+
         // Find Teammates Control Panel
     }).when('/reset', {
         controller: 'addCtrl2',

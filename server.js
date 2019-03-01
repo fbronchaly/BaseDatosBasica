@@ -1,11 +1,12 @@
 // Dependencies
 // -----------------------------------------------------
 require('./config/config');
+
 var express = require('express');
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+//var methodOverride = require('method-override');
 var app = express();
 var http = require("https");
 var path = require('path');
@@ -35,7 +36,7 @@ app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.text()); // allows bodyParser to look at raw text
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-app.use(methodOverride());
+//app.use(methodOverride());
 
 
 
