@@ -105,6 +105,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
         ventana.document.write('<link rel="stylesheet" href="print.css">'); //Cargamos otra hoja, no la normal
         ventana.document.write('</head><body ><p>'+ direccionSolicitada +'</p>');
         ventana.document.write(elemento.innerHTML);
+        ventana.document.write('<div class= "box"> Mapa de rayos3</div>');
         ventana.document.write('</body></html>');
         ventana.document.close();
         ventana.focus();
