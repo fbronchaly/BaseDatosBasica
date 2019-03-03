@@ -95,7 +95,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
 
     document.querySelector("#btnImprimirParrafo").addEventListener("click", function() {
         var mapa1 = document.querySelector("#mapa");
-        var mapa2 = document.querySelector("#mapa");
+        var mapa2 = document.querySelector("#mapa2");
         imprimirElemento(mapa1, mapa2);
     });
 
@@ -111,9 +111,10 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
         ventana.document.write('</head><body ><p>');
         ventana.document.write('<div class= "box"><h2> Mapa de rayos </h2></div>');
         ventana.document.write(mapa1.innerHTML);
-        //ventana.document.write(mapa2.innerHTML);
+
         ventana.document.write('<div class= "box">' + fecha + '</div>');
         ventana.document.write('<div class= "box">' + direccionSolicitada + '</div>');
+        ventana.document.write(mapa2.innerHTML);
 
 
         ventana.document.write('</body></html>');

@@ -56,9 +56,10 @@ body {
     color: #555;
 }
 
-.mapa {
+#mapa {
     position: relative;
-    width: 60%;
-    left: 10%;
-    top: 15%;
+    background: rgb(250, 250, 250);
+    width: 10%;
+    left: 5%;
+    top: 5%;
 }

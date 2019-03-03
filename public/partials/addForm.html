@@ -15,95 +15,89 @@
         <div class="panel-body">
 
             <!-- Creates Form (novalidate disables HTML validation, Angular will control) -->
-            <form name ="addForm" novalidate ng-show="ocultar_panel">
+            <form name="addForm" novalidate ng-show="ocultar_panel">
                 <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
                 <div class="form-group">
                     <label for="direccion">Dirección <span class="badge">Introducir dirección</span></label>
-                    <input autocomplete="off" type="text"  class="form-control"  id="direccion"  ng-model="formData.direccion" required>
+                    <input autocomplete="off" type="text" class="form-control" id="direccion" ng-model="formData.direccion" required>
 
                 </div>
 
 
 
-               <div class="form-group" >
-                    
-                    <label for="direccion">Fecha <span class="badge">Introducir fecha</span></label>
-                     
-                      <md-datepicker ng-model="formData.fecha" format = "dd.mm.yyyy" required></md-datepicker>
-                    </div>
+                <div class="form-group">
 
-                    <div class="form-group">
+                    <label for="direccion">Fecha <span class="badge">Introducir fecha</span></label>
+
+                    <md-datepicker ng-model="formData.fecha" format="dd.mm.yyyy" required></md-datepicker>
+                </div>
+
+                <div class="form-group">
 
                     <label class="radio control-label">Radio de busqueda (Km)</label>
 
 
-                              <input type="radio" name="optionsRadios" id="50" value="50" ng-model="formData.distance" ng-required="form.distance != ''" />
-                              50 Km
-                                <input type="radio" name="optionsRadios" id="100" value="100" ng-model="formData.distance" ng-required="form.distance != ''" />
-                                100 Km
-                                <input type="radio" name="optionsRadios" id="200" value="200"   ng-model ="formData.distance" ng-required="form.distance != ''" />
-                                200 Km
+                    <input type="radio" name="optionsRadios" id="50" value="50" ng-model="formData.distance" ng-required="form.distance != ''" /> 50 Km
+                    <input type="radio" name="optionsRadios" id="100" value="100" ng-model="formData.distance" ng-required="form.distance != ''" /> 100 Km
+                    <input type="radio" name="optionsRadios" id="200" value="200" ng-model="formData.distance" ng-required="form.distance != ''" /> 200 Km
 
 
 
-                        </div>
-                        <div>
-                        
-                        </div>
+                </div>
+                <div>
+
+                </div>
                 <!-- Submit button. Note that its tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
-                    <button type="submit" class="btn btn-danger btn-block" ng-click= "createUser()" ng-disabled="addForm.$invalid" >Consultar</button>
+                <button type="submit" class="btn btn-danger btn-block" ng-click="createUser()" ng-disabled="addForm.$invalid">Consultar</button>
             </form>
 
-        
 
-        <!-- Panel Body -->
-        <div class="panel-body" ng-show="mostrar_resultado">
-            <!-- Panel Title -->
-        <div class="panel-heading">
-                <h2 class="panel-title text-center">Datos encontrados! <span class="glyphicon glyphicon-search"></span></h2>
-            </div>
-            <!-- Creates Form -->
-            <form name ="queryForm">
 
-                <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
-
-                
-
-                <div class="form-group">
-                    <label for="direccion">Direccion</label>
-                    <input type="text" class="form-control" id="usuario" value = {{formData.codePostal}} readonly >
+            <!-- Panel Body -->
+            <div class="panel-body" ng-show="mostrar_resultado">
+                <!-- Panel Title -->
+                <div class="panel-heading">
+                    <h2 class="panel-title text-center">Datos encontrados! <span class="glyphicon glyphicon-search"></span></h2>
                 </div>
-                <div class="form-group">
-                    <label for="fecha">Fecha</label>
-                    <input type="text" class="form-control" id="fecha" value = {{formData.fecha_Ok}} readonly>
-                </div>
-                
-                <ul class="form-group">
-                   
-                    <title>Mapa AEMET</title> 
-                    <div class="thumbnail">
-                        
-                          <img src="../imagenes/a_1220191.jpg" alt="Lights" style="width:100%">
+                <!-- Creates Form -->
+                <form name="queryForm">
 
-                     
-                      </div> 
-                    
-                    
-                </ul>
-                <ul class="form-group">
-                
-                  
+                    <!-- Text Boxes and Other User Inputs. Note ng-model binds the values to Angular $scope -->
 
-                    <button id="btnImprimirParrafo" class="btn btn-primary  text-center" >Imprimir </button>
-                </ul>
-                        
+
+
+                    <div class="form-group">
+                        <label for="direccion">Direccion</label>
+                        <input type="text" class="form-control" id="usuario" value={{formData.codePostal}} readonly>
                     </div>
-                    
-                  </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha</label>
+                        <input type="text" class="form-control" id="fecha" value={{formData.fecha_Ok}} readonly>
+                    </div>
+
+                    <ul class="form-group">
+
+                        <title>Mapa AEMET</title>
+                        <div class="thumbnail" id="mapa2">
+
+                            <img src="../imagenes/a_1220191.jpg" alt="Lights" style="width:100%">
 
 
-            
+                        </div>
+
+
+                    </ul>
+                    <ul class="form-group">
+
+
+
+                        <button id="btnImprimirParrafo" class="btn btn-primary  text-center">Imprimir </button>
+                    </ul>
+
+            </div>
+
         </div>
-     
-        
 
+
+
+    </div>

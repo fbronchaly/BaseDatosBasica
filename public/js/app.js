@@ -11,10 +11,6 @@ app.config(function($routeProvider) {
         controller: 'addCtrl',
         templateUrl: 'partials/addForm.html'
 
-        // Find Teammates Control Panel
-    }).when('/pdf', {
-        controller: 'addCtrl3',
-        
 
 
 
@@ -23,7 +19,7 @@ app.config(function($routeProvider) {
         controller: 'addCtrl2',
         templateUrl: 'partials/addForm.html'
 
-    
+
 
 
     }).otherwise({ redirectTo: '/join' });
