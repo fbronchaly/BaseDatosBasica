@@ -50,6 +50,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
         basefecha2 = 'a' + basefecha;
         console.log(basefecha2);
 
+        $scope.formData.fecha34 = modificaFecha;
 
 
         //*********** Esta funcion envia datos al formulario
@@ -63,7 +64,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
 
 
         gservice.refresh2($scope.formData.latitude, $scope.formData.longitude, basefecha2, distance);
-        
+
 
 
 
@@ -90,32 +91,40 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
 
     };
     // Imprimir mapa y datos
-       
+
+
     document.querySelector("#btnImprimirParrafo").addEventListener("click", function() {
-        var parrafo = document.querySelector("#mapa");
-        imprimirElemento(parrafo);
-      });
+        var mapa1 = document.querySelector("#mapa");
+        var mapa2 = document.querySelector("#mapa");
+        imprimirElemento(mapa1, mapa2);
+    });
 
 
-      function imprimirElemento(elemento) {
-        var title = "MAPA DE RAYOS " + basefecha;
-        var direccionSolicitada = "Dirección solicitada:" + $scope.formData.codePostal;
+
+    function imprimirElemento(mapa1, mapa2) {
+
+        var direccionSolicitada = "Dirección solicitada: " + $scope.formData.codePostal;
+        var fecha = "Fecha solicitada: " + $scope.formData.fecha34;
         var ventana = window.open('', 'PRINT', 'height=200,width=300');
-        ventana.document.write('<html><head><title>' + title + '</title>');
+        ventana.document.write('<html><head><title class= "box"></title>');
         ventana.document.write('<link rel="stylesheet" href="print.css">'); //Cargamos otra hoja, no la normal
-        ventana.document.write('</head><body ><p>'+ direccionSolicitada +'</p>');
-        ventana.document.write(elemento.innerHTML);
-        ventana.document.write('<div class= "box"> Mapa de rayos3</div>');
+        ventana.document.write('</head><body ><p>');
+        ventana.document.write('<div class= "box"><h2> Mapa de rayos </h2></div>');
+        ventana.document.write(mapa1.innerHTML);
+        //ventana.document.write(mapa2.innerHTML);
+        ventana.document.write('<div class= "box">' + fecha + '</div>');
+        ventana.document.write('<div class= "box">' + direccionSolicitada + '</div>');
+
+
         ventana.document.write('</body></html>');
         ventana.document.close();
         ventana.focus();
         ventana.onload = function() {
-          ventana.print();
-          ventana.close();
+            ventana.print();
+            ventana.close();
         };
         return true;
-      }
-
+    }
 
     var input = document.getElementById('direccion');
 
@@ -143,7 +152,7 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
 
     });
 
-    
+
 
 
 });
@@ -152,7 +161,7 @@ addCtrl.controller('addCtrl2', function($scope, $http, $location, geolocation, g
     // Inicio de variables
     // ----------------------------------------------------------------------------
 
-   
+
 
     // Cordenadas iniciales en el centro de España
     latitudeini = 40.4378698;
@@ -161,7 +170,6 @@ addCtrl.controller('addCtrl2', function($scope, $http, $location, geolocation, g
 
     gservice.refresh(latitudeini, longitudeini);
     $location.url('/join');
-    
+
 
 });
-

@@ -1,71 +1,64 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sackers Gothic Std';
+    font-weight: 500;
+    font-size: 7px;
+    -webkit-print-color-adjust: exact;
+    box-sizing: border-box;
+}
 
-      html, body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Sackers Gothic Std';
-        font-weight: 500;
-        font-size: 7px;
-        background: rgb(241,241,241);
-        -webkit-print-color-adjust: exact;
-        box-sizing: border-box;
-      }
+.page {
+    position: relative;
+    height: 90mm;
+    width: 50mm;
+    display: block;
+    background: black;
+    page-break-after: auto;
+    margin: 50px;
+    overflow: hidden;
+}
 
-      .page {
-        position: relative;
-        height: 90mm;
-        width: 50mm;
-        display: block;
-        background: black;
-        page-break-after: auto;
-        margin: 50px;
-        overflow: hidden;
-      }
+.page {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
 
-      
+.page.first {
+    border-left: 5px solid green;
+}
 
-        .page {
-          margin: 0;
-          height: 100%;
-          width: 100%;
-        }
-      }
+.bottom {
+    position: absolute;
+    left: 5mm;
+    right: 5mm;
+    bottom: 5mm;
+}
 
-      .page.first {
-        border-left: 5px solid green;
-      }
+.group {
+    margin-top: 3mm;
+}
 
-      .bottom {
-        position: absolute;
-        left: 5mm;
-        right: 5mm;
-        bottom: 5mm;
-      }
+.line {
+    color: white;
+    position: relative;
+}
 
-      .group {
-        margin-top: 3mm;
-      }
+.box {
+    max-width: 800px;
+    margin: auto;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+}
 
-      .line {
-        color: white;
-        position: relative;
-      }
-
-      .title{
-        max-width: 800px;
-        margin: auto;
-        padding: 30px;
-        border: 1px solid #eee;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-        font-size: 16px;
-        line-height: 24px;
-        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        color: #555;
-    }
-
-      .mapa {
-        position: relative;
-        width: 80%;
-        left: 10%;
-        top: 15%;
-      }
-
+.mapa {
+    position: relative;
+    width: 60%;
+    left: 10%;
+    top: 15%;
+}
