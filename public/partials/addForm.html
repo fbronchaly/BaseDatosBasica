@@ -6,9 +6,15 @@
     <!-- Creates Main Panel -->
     <div class="panel panel-default">
 
+        <div>
+            <h2>
+            </h2>
+        </div>
+
         <!-- Panel Title -->
         <div class="panel-heading">
-            <h2 class="panel-title text-center">Mapa de rayos <span class="glyphicon glyphicon-map-marker"></span></h2>
+            <h2 class="panel-title text-center">Mapa de rayos <span class="glyphicon glyphicon-map-marker"></span>
+            </h2>
         </div>
 
         <!-- Panel Body -->
@@ -27,6 +33,8 @@
 
                 <div class="form-group">
 
+
+
                     <label for="direccion">Fecha <span class="badge">Introducir fecha</span></label>
 
                     <md-datepicker ng-model="formData.fecha" format="dd.mm.yyyy" required></md-datepicker>
@@ -44,11 +52,13 @@
 
 
                 </div>
-                <div>
-
+                <div class="form-group">
+                    <!-- Submit button. Note that its tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
+                    <button type="submit" class="btn btn-danger btn-block" ng-click="createUser()" ng-disabled="addForm.$invalid">Consultar</button>
                 </div>
-                <!-- Submit button. Note that its tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
-                <button type="submit" class="btn btn-danger btn-block" ng-click="createUser()" ng-disabled="addForm.$invalid">Consultar</button>
+
+
+
             </form>
 
 
@@ -80,7 +90,7 @@
                         <title>Mapa AEMET</title>
                         <div class="thumbnail" id="mapa2">
 
-                            <img src="../imagenes/a_1220191.jpg" alt="Lights" style="width:100%">
+                            <img class='zoom' id="mapaAemet" style="width:100%">
 
 
                         </div>

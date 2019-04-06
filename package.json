@@ -9,14 +9,21 @@
         "angular-google-maps": "2.2.x",
         "angular-material": "^1.1.10",
         "angular-messages": "^1.7.3",
+        "angular-recaptcha": "^4.2.0",
+        "angular-ui-bootstrap": "^2.5.6",
         "angular4-datepicker": "^1.0.1",
+        "axios": "^0.18.0",
+        "bluebird": "^3.5.3",
         "body-parser": "^1.15.0",
         "express": "^4.13.4",
+        "fs": "0.0.1-security",
         "https": "^1.0.0",
-        "jsonwebtoken": "^5.0.2",
-        "method-override": "~2.1.2",
+        "moment": "^2.24.0",
         "mongoose": "~5.0.0",
         "morgan": "^1.7.0",
-        "request": "^2.88.0"
+        "nconf": "^0.10.0",
+        "path": "^0.12.7",
+        "request": "^2.88.0",
+        "serve-favicon": "^2.5.0"
     }
 }

@@ -14,9 +14,11 @@ angular.module('gservice', [])
         var selectedLat = 40.4378698;
         var selectedLong = -3.8196207;
 
+        var orden = 1;
 
-        
-        
+
+
+
 
         // Functions
         // --------------------------------------------------------------
@@ -55,6 +57,12 @@ angular.module('gservice', [])
                 fecha: fecha
             };
 
+
+
+
+
+
+
             // Perform an AJAX call to get all of the records in the db.
             $http.post('/query', userData2)
                 .success(function(response) {
@@ -62,13 +70,89 @@ angular.module('gservice', [])
 
 
 
-                    //$scope.queryCount = data2.length;
-
-
 
                     // Convert the results into Google Map Format
                     locations = convertToMapPoints2(response);
+                    console.log(response);
+                    if (response.length != 0 & response.name != "MongoError") {
 
+
+                        var uno = locations[0].time / 1000000;
+                        var s = uno.toFixed(0);
+                        var x = Number(s);
+                        var d = new Date(x);
+                        var hora = d.getHours();
+                        var orden = 1;
+
+                        var horaActual = new Date();
+
+                        var expira = horaActual.getFullYear() + '-' + (horaActual.getMonth() + 1) + '-' + (horaActual.getDate() + 1);
+
+                        if (hora < 12) {
+                            orden = 1
+                        } else
+                        if (hora < 18) {
+                            orden = 2
+                        } else {
+                            orden = 3
+                        };
+
+
+                        var userData3 = {
+                            bucketName: 'prueba-pp',
+                            gcsFileName: userData2.fecha + orden + ".jpeg",
+                            action: 'read',
+                            expires: expira,
+
+                        };
+
+
+                        $http.post('/googleCloudDown', userData3)
+                            .success(function(response) {
+
+                                imagenA = document.getElementById('mapaAemet');
+                                imagenA.src = response;
+
+                            }).error(function(error) {
+                                imagenA = document.getElementById('mapaAemet');
+                                imagenA.src = './imagenes/no-imageAemet.jpg';
+
+                            });
+
+                    } else {
+
+                        alert('No hubo rayos en fecha señalada o no existen registros');
+                        var horaActual = new Date();
+
+                        var expira = horaActual.getFullYear() + '-' + (horaActual.getMonth() + 1) + '-' + (horaActual.getDate() + 1);
+                        var orden = 1;
+
+                        var userData3 = {
+                            bucketName: 'prueba-pp',
+                            gcsFileName: userData2.fecha + orden + ".jpeg",
+                            action: 'read',
+                            expires: expira,
+
+                        };
+
+
+                        $http.post('/googleCloudDown', userData3)
+                            .success(function(response) {
+
+                                imagenB = document.getElementById('mapaAemet');
+                                imagenB.src = response;
+                                console.log(response);
+
+
+                            }).error(function(error) {
+                                console.log('Google Cloud no hay mapa en fecha señalada' + error);
+                                imagenB = document.getElementById('mapaAemet');
+                                imagenB.src = './imagenes/no-imageAemet.jpg';
+
+
+                            });
+
+                    }
 
                     // Then initialize the map.
                     initialize2(latitude, longitude, distance);
@@ -92,6 +176,7 @@ angular.module('gservice', [])
 
 
 
+
             // Loop through all of the JSON entries provided in the response
             for (var i = 0; i < response.length; i++) {
                 var user = response[i];
@@ -104,6 +189,14 @@ angular.module('gservice', [])
                 var s = t.toFixed(0);
                 var x = Number(s);
                 var d = new Date(x);
+
+                var cercania = response[0].distancia;
+                var cercaniahora = response[0].time;
+                var cercaniadia = response[0].distancia;
+
+
+
+
 
 
 
@@ -126,7 +219,8 @@ angular.module('gservice', [])
                     }),
                     distancia: user.distance,
                     lat: user.location[1],
-                    lon: user.location[0]
+                    lon: user.location[0],
+                    time: user.time
 
                 });
             }
@@ -165,7 +259,7 @@ angular.module('gservice', [])
                         maxWidth: 320
                     }),
                     distancia: user.distancia,
-                    time: user.time,
+                    time: response[i].time,
                     lat: user.lat,
                     lon: user.lon,
                     alt: user.alt

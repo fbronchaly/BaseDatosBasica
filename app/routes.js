@@ -1,4 +1,22 @@
 // Dependencies
+'use strict';
+
+const { Storage } = require('@google-cloud/storage');
+const config = require('../config/config');
+const path = require('path');
+var Promise = require("bluebird");
+const fs = require('fs');
+const axios = require('axios');
+const { getPrivateUrl } = require('../server/google-cloud');
+
+
+
+
+const storage = new Storage({
+    projectId: 'PROJECT_ID',
+    keyFilename: './config.json'
+});
+
 
 var mongoose = require('mongoose');
 
@@ -48,7 +66,7 @@ module.exports = function(app) {
 
 
 
-            query = Modelobase.aggregate(
+            var query = Modelobase.aggregate(
                 [{
                     "$geoNear": {
                         "near": {
@@ -84,7 +102,44 @@ module.exports = function(app) {
             //console.log(users);
             // If no errors, respond with a JSON of all users that meet the criteria
             res.json(users);
+
         });
     });
-    
+    app.post('/googleCloudDown', function(req, res) {
+
+
+        var bucketName = req.body.bucketName;
+        var gcsFileName = req.body.gcsFileName;
+        var config = {
+            action: req.body.action,
+            expires: req.body.expires
+        };
+
+        getPrivateUrl(bucketName, gcsFileName, config).then(resolve => {
+
+            return res.send(resolve);
+            console.log(resolve);
+
+
+        }).catch(() => {
+            console.log('Esto es un error');
+
+        });
+
+
+
+
+
+        //res.send({ user: resolve });
+
+
+
+
+    });
+
+
+
+
+
+
 };

@@ -1,6 +1,6 @@
 // Creates the addCtrl Module and Controller. Note that it depends on the 'geolocation' module and service.
 // Creates the addCtrl Module and Controller. Note that it depends on the 'geolocation' module and service.
-var addCtrl = angular.module('addCtrl', ['geolocation', 'gservice', 'ngRoute', 'ngMaterial']);
+var addCtrl = angular.module('addCtrl', ['geolocation', 'gservice', 'ngRoute', 'ngMaterial', ]);
 addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gservice) {
 
     // Inicio de variables
@@ -36,6 +36,8 @@ addCtrl.controller('addCtrl', function($scope, $http, $location, geolocation, gs
     // ----------------------------------------------------------------------------
 
     $scope.createUser = function() {
+
+
 
 
         // Modificamos  la fecha elimando puntos para poder usar como String y le damos forma.

@@ -1,6 +1,6 @@
 // Dependencies
 // -----------------------------------------------------
-require('./config/config');
+
 
 var express = require('express');
 var mongoose = require('mongoose');
@@ -10,7 +10,9 @@ var bodyParser = require('body-parser');
 var app = express();
 var http = require("https");
 var path = require('path');
-
+var config = require('./config/config');
+var googleCloud = require('./server/google-cloud');
+var favicon = require('serve-favicon');
 
 
 
@@ -37,9 +39,10 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 app.use(bodyParser.text()); // allows bodyParser to look at raw text
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 //app.use(methodOverride());
+app.use(favicon(__dirname + '/public/imagenes/favicon.ico'));
 
 
-
+//googleCloud.getPrivateUrl('prueba-pp', 'a_14320192.jpeg', { action: 'read', expires: '2019-04-01' });
 
 // Routes
 // ------------------------------------------------------
