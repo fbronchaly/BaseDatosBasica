@@ -19,7 +19,7 @@
         "fs": "0.0.1-security",
         "https": "^1.0.0",
         "moment": "^2.24.0",
-        "mongoose": "~5.0.0",
+        "mongoose": "~5.7.5",
         "morgan": "^1.7.0",
         "nconf": "^0.10.0",
         "path": "^0.12.7",
